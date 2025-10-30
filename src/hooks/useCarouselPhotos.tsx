@@ -2,6 +2,5 @@
       '/img/imgJardin1.jpg',
        '/img/imgJardin2.jpg',
          '/img/imgJardin3.jpg',
-         '/img/imgJardin4.jpg',
          '/img/imgJardin5.jpg'
   ]
