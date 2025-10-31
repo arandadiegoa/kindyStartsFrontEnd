@@ -1,6 +1,8 @@
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { pillarsData } from "@/data/activitiesData";
 import { Smile } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Educational() {
   return (
@@ -57,6 +59,17 @@ export function Educational() {
             </Card>
           ))}
         </div>
+      </section>
+
+      <section className="text-center bg-muted p-10 rounded-lg">
+        <h2 className="text-3xl font-bold mb-4">¿Quieres saber más?</h2>
+        <p className="text-lg text-muted-foreground mb-5 max-w-xl mx-auto">
+          Estamos aquí para responder todas tus dudas. Agendá una entrevista y
+          ven a conocer nuestro espacio.
+        </p>
+        <Button size="lg" asChild>
+          <Link to="/contacto">Agendar una visita</Link>
+        </Button>
       </section>
     </div>
   );
