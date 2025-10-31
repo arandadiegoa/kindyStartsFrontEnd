@@ -34,4 +34,4 @@
 
 🧩 TypeScript
 
-🎨 [Styled Components/ React Bootstrap]
+🎨 [CSS tailwindcss / shadcn/ui]

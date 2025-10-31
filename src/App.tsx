@@ -3,8 +3,8 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Navbar } from "./components/Navbar";
-import { Galery } from "./pages/Galery";
-import { AboutUs } from "./pages/AboutUs";
+import { Activities } from "./pages/Activities";
+import { Educational } from "./pages/Educational";
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/galery" element={<Galery />} />
-        <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/actividades" element={<Activities />} />
+        <Route path="/propuestaEducativa" element={<Educational />} />
       </Routes>
     </>
   );

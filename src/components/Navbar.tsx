@@ -12,8 +12,8 @@ export function Navbar() {
   // Define tus links aquí para no repetirlos
   const navLinks = [
     { to: "/", label: "Inicio" },
-    { to: "/galery", label: "Galería" },
-    { to: "/aboutUs", label: "Nosotros" }
+    { to: "/actividades", label: "Actividades" },
+    { to: "/propuestaEducativa", label: "Propuesta Educativa" }
     // Agrega más links aquí
   ];
 
