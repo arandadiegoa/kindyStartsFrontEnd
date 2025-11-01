@@ -4,7 +4,6 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Navbar } from "./components/Navbar";
 import { Activities } from "./pages/Activities";
-import { Educational } from "./pages/Educational";
 import { Contact } from "./pages/Contact";
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Register />} />
         <Route path="/actividades" element={<Activities />} />
-        <Route path="/propuestaEducativa" element={<Educational />} />
         <Route path="/contacto" element={<Contact />} />
       </Routes>
     </>

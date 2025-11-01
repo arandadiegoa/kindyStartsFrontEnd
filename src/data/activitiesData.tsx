@@ -1,7 +1,19 @@
-export const carouselPhotos: string[] = [
-  "/img/imgJardin1.jpg",
-  "/img/imgJardin2.jpg",
-  "/img/imgJardin5.jpg",
+export const carouselSlides = [
+  {
+    imgSrc: "/img/garden/imgJardin.jpg",
+    title: "Bienvenidos a KindyStarts",
+    subtitle: "Un lugar para crecer, jugar y aprender",
+  },
+  {
+    imgSrc: "/img/garden/imgJardin2.jpg",
+    title: "Inscripciones Abiertas 2026",
+    subtitle: "Asegura tu lugar para el próximo ciclo. ¡Cupos limitados!",
+  },
+  {
+    imgSrc: "/img/garden/imgJardin1.jpg",
+    title: "20% de descuento",
+    subtitle: "Reservando tu vacante antes del 31 de Diciembre.",
+  },
 ];
 
 export const activitiesData = [
@@ -11,10 +23,10 @@ export const activitiesData = [
     description:
       "Hoy tuvimos un hermoso día de pintura en el jardín🎨. Los chicos y chicas disfrutaron de una jornada llena de color, creatividad y diversión. Con pinceles, rodillos, esponjas y hasta sus propias manos, exploraron distintas técnicas y mezclas de colores, dejando volar la imaginación.",
     photos: [
-      "/img/Image1.jpeg",
-      "/img/Image4.jpeg",
-      "/img/Image11.jpeg",
-      "/img/Image12.jpeg",
+      "/img/galery/Image1.jpeg",
+      "/img/galery/Image4.jpeg",
+      "/img/galery/Image11.jpeg",
+      "/img/galery/Image12.jpeg",
     ],
   },
   {
@@ -23,10 +35,10 @@ export const activitiesData = [
     description:
       "Hoy vivimos una jornada muy especial: ¡el día de granja! 🌻🐴🐇. Los chicos y chicas pudieron conocer de cerca distintos animales: gallinas, conejos, ovejas, cabritos y hasta una vaca muy simpática. Aprendieron sobre cómo se alimentan, qué cuidados necesitan y la importancia de respetar y cuidar a todos los seres vivos.",
     photos: [
-      "/img/Image5.jpeg",
-      "/img/Image7.jpeg",
-      "/img/Image9.jpeg",
-      "/img/Image13.jpeg",
+      "/img/galery/Image5.jpeg",
+      "/img/galery/Image7.jpeg",
+      "/img/galery/Image9.jpeg",
+      "/img/galery/Image13.jpeg",
     ],
   },
   {
@@ -35,10 +47,10 @@ export const activitiesData = [
     description:
       "Hoy celebramos con gran alegría nuestra exposición de trabajos🌟. Las salas del jardín se llenaron de color, creatividad y emoción. Las familias pudieron recorrer los espacios y observar los proyectos que los chicos y chicas realizaron durante este tiempo: pinturas, collages, maquetas, experimentos y muchas cosas más.",
     photos: [
-      "/img/Image8.jpeg",
-      "/img/Image10.jpeg",
-      "/img/Image3.jpeg",
-      "/img/Image.jpeg",
+      "/img/galery/Image8.jpeg",
+      "/img/galery/Image10.jpeg",
+      "/img/galery/Image3.jpeg",
+      "/img/galery/Image.jpeg",
     ],
   },
 ];
@@ -75,3 +87,27 @@ export const pillarsData = [
       "  Desde las primeras canciones hasta la hora del cuento, enriquecemos su vocabulario y amor por la lectura.",
   },
 ];
+
+export const teamData = [
+  {
+    name: "Lucía P. Romagnoli",
+    role: "Directora",
+    imgSrc: "/img/team/directora.jpg"
+  },
+   {
+    name: "Betina A. Acosta",
+    role: "Maestra - Sala Azul",
+    imgSrc: "/img/team/maestra_sa.jpg"
+  },
+   {
+    name: "Mariana N. Gorosito",
+    role: "Maestra - Sala Roja",
+    imgSrc: "/img/team/maestra_sr.jpg"
+  },
+  {
+    name: "Mercedes S. Torrico",
+    role: "Prof. de Música",
+    imgSrc: "/img/team/profesora_musica.jpg"
+  }
+
+]

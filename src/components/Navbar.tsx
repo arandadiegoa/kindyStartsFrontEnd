@@ -13,7 +13,6 @@ export function Navbar() {
   const navLinks = [
     { to: "/", label: "Inicio" },
     { to: "/actividades", label: "Actividades" },
-    { to: "/propuestaEducativa", label: "Propuesta Educativa" }
     // Agrega más links aquí
   ];
 
@@ -28,7 +27,7 @@ export function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img
-            src="/img/logo.png"
+            src="/img/logo/logo.png"
             alt="KindyStarts Logo"
             className="h-10 w-auto"
           />
