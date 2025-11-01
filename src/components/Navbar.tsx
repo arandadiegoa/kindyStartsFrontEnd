@@ -60,7 +60,7 @@ export function Navbar() {
           <Link to="/login">Login</Link>
         </Button>
         <Button variant="link" asChild>
-          <Link to="/register">Registrarse</Link>
+          <Link to="/registro">Registrarse</Link>
         </Button>
       </div>
 

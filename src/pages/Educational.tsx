@@ -61,11 +61,11 @@ export function Educational() {
         </div>
       </section>
 
-      <section className="text-center bg-muted p-10 rounded-lg">
+      <section className="text-center bg-green-100 p-10 rounded-lg">
         <h2 className="text-3xl font-bold mb-4">¿Quieres saber más?</h2>
         <p className="text-lg text-muted-foreground mb-5 max-w-xl mx-auto">
           Estamos aquí para responder todas tus dudas. Agendá una entrevista y
-          ven a conocer nuestro espacio.
+          vení a conocer nuestro espacio.
         </p>
         <Button size="lg" asChild>
           <Link to="/contacto">Agendar una visita</Link>

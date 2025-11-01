@@ -75,7 +75,7 @@ export function Contact(){
                   <FormItem>
                     <FormLabel>Teléfono</FormLabel>
                     <FormControl>
-                      <Input type="number" placeholder="teléfono" {...field} />
+                      <Input type="tel" placeholder="351 1234567" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

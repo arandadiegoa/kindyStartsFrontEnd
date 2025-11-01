@@ -31,6 +31,10 @@ const formSchema = z.object({
   email: z.email({
     message: "Por favor ingresa un email válido",
   }),
+  register: z.string().min(4, {
+    message: "El apellido debe tener al menos 3 caracteres."})
+    .regex(/^[0-9]+$/, { message: "El campo solo debe contener números"
+  }),
   password: z.string().min(6, {
     message: "La contraseña debe tener al menos 6 caracteres",
   }),
@@ -40,7 +44,7 @@ const formSchema = z.object({
   telephone: z
     .string()
     .min(10, { message: "Debe tener al menos 10 caracteres" })
-    .regex(/^[0-9]+$/, { message: "El teléfono solo debe contener números" }),
+    .regex(/^[0-9]+$/, { message: "El campo solo debe contener números" }),
 })
 .refine(
     (data) => data.password === data.confirmPassword,
@@ -57,6 +61,7 @@ export function Register() {
     defaultValues: {
       name: "",
       lastName: "",
+      register:"",
       email: "",
       password: "",
       confirmPassword:"",
@@ -90,7 +95,7 @@ export function Register() {
                   <FormItem>
                     <FormLabel>Nombre</FormLabel>
                     <FormControl>
-                      <Input type="text" placeholder="nombre" {...field} />
+                      <Input type="text" placeholder="nombre niño/a" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -106,7 +111,23 @@ export function Register() {
                   <FormItem>
                     <FormLabel>Apellido</FormLabel>
                     <FormControl>
-                      <Input type="text" placeholder="apellido" {...field} />
+                      <Input type="text" placeholder="apellido niño/a" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </CardContent>
+
+               <CardContent className="grid gap-4">
+              <FormField
+                control={form.control}
+                name="register"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>N° Matrícula</FormLabel>
+                    <FormControl>
+                      <Input type="text" placeholder="123456" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -124,7 +145,7 @@ export function Register() {
                     <FormControl>
                       <Input
                         type="text"
-                        placeholder="tu@email.com"
+                        placeholder="mamá/papá@email.com"
                         {...field}
                       />
                     </FormControl>
@@ -174,7 +195,7 @@ export function Register() {
                   <FormItem>
                     <FormLabel>Teléfono</FormLabel>
                     <FormControl>
-                      <Input type="text" placeholder="teléfono" {...field} />
+                      <Input type="tel" placeholder="351 1234567(mamá/papá)" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
