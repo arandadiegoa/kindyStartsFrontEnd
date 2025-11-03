@@ -5,6 +5,9 @@ import { Register } from "./pages/Register";
 import { Navbar } from "./components/Navbar";
 import { Activities } from "./pages/Activities";
 import { Contact } from "./pages/Contact";
+import { Footer } from "./components/Footer";
+import { StepsList } from "./pages/StepsList";
+import { Questions } from "./pages/Questions";
 
 function App() {
   return (
@@ -16,7 +19,10 @@ function App() {
         <Route path="/registro" element={<Register />} />
         <Route path="/actividades" element={<Activities />} />
         <Route path="/contacto" element={<Contact />} />
+        <Route path="/¿como-inscribirse?" element={<StepsList />} />
+        <Route path="/preguntas-frecuentes" element={<Questions />} />
       </Routes>
+      <Footer />
     </>
   );
 }
