@@ -11,12 +11,15 @@ import { Questions } from "./pages/Questions";
 import { MyClass } from "./pages/teaching/MyClass";
 import { Dashboard } from "./pages/adm/Dashboard";
 import { HomeFamily } from "./pages/family/HomeFamily";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
+        
+        {/*Pages public*/}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Register />} />
@@ -24,9 +27,19 @@ function App() {
         <Route path="/contacto" element={<Contact />} />
         <Route path="/¿como-inscribirse?" element={<StepsList />} />
         <Route path="/preguntas-frecuentes" element={<Questions />} />
-        <Route path="/adm/dashboard" element={<Dashboard />} />
-        <Route path="teaching/myclass" element={<MyClass />} />
-        <Route path="/family/homefamily" element={<HomeFamily />} />
+
+        {/*Pages private*/}
+        <Route element={<ProtectedRoute validRoles={['admin']} />}>
+            <Route path="/adm/dashboard" element={<Dashboard />} />
+        </Route>
+
+        <Route element={<ProtectedRoute validRoles={['teaching']} />}>
+            <Route path="teaching/myclass" element={<MyClass />} />
+        </Route>
+
+        <Route element={<ProtectedRoute validRoles={['family']} />}>
+            <Route path="/family/homefamily" element={<HomeFamily />} />
+        </Route>
       </Routes>
       <Footer />
     </>
