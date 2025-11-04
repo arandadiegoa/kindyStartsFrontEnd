@@ -14,6 +14,7 @@ export function ActivityCard({title, date, description, photos}:ActivityCardProp
   const [open, setOpen] = useState(false);
   const [startIndex, setStartIndex] = useState(0);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const openDialog = (index: any) => {
     setStartIndex(index);
     setOpen(true);

@@ -28,7 +28,7 @@ export function Footer() {
               </a>
               <span>AV. Siempre Viva 123, Córdoba, Argentina</span>
             </li>
-            <li className="flex items-center gap-2">
+            <li className="flex items-start gap-2">
               <a
                 href="https://www.whatsapp.com/?lang=es"
                 className="hover:text-primary transition-colors"
@@ -39,7 +39,7 @@ export function Footer() {
               </a>
                <span>351-1233900</span>
             </li>
-            <li className="flex items-center gap-2">
+            <li className="flex items-start gap-2">
               <Clock size={16} />
               <span>Lunes a Viernes de 8 a 17hs</span>
             </li>

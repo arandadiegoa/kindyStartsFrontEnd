@@ -7,7 +7,7 @@ export function Activities() {
     <div className="container mx-auto p-4">
       <h1 className="text-3xl text-center font-bold mb-10 mt-4">Galería de Actividades</h1>
       
-      <div className="flex flex-col-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {activitiesData.map((activity, index) => (
           <ActivityCard
             key={index}

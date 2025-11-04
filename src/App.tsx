@@ -18,7 +18,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        
+
         {/*Pages public*/}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -34,7 +34,7 @@ function App() {
         </Route>
 
         <Route element={<ProtectedRoute validRoles={['teaching']} />}>
-            <Route path="teaching/myclass" element={<MyClass />} />
+            <Route path="/teaching/myclass" element={<MyClass />} />
         </Route>
 
         <Route element={<ProtectedRoute validRoles={['family']} />}>

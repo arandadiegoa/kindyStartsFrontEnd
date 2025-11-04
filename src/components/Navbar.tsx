@@ -7,19 +7,38 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { useAuth } from "@/hook/useAuth";
 
 export function Navbar() {
-  // Define tus links aquí para no repetirlos
-  const navLinks = [
+  const { role, logout } = useAuth();
+
+  const publicLinks = [
     { to: "/", label: "Inicio" },
+    { to: "/contacto", label: "Contacto" },
     { to: "/actividades", label: "Actividades" },
-    // Agrega más links aquí
   ];
 
-  const baseClasses =
-    "text-sm font-medium transition-colors hover:text-primary";
-  const activeClass = "text-primary";
-  const inactiveClass = "text-muted-foreground";
+  const adminLinks = [{ to: "/adm/dashboard", label: "Dashboard" }];
+
+  const teachLinks = [{ to: "/teaching/myclass", label: "Mi clase" }];
+
+  const familyLinks = [{ to: "/family/homefamily", label: "Mi perfil" }];
+
+  let navLinks = [];
+
+  switch (role) {
+    case "admin":
+      navLinks = adminLinks;
+      break;
+    case "teaching":
+      navLinks = teachLinks;
+      break;
+    case "family":
+      navLinks = familyLinks;
+      break;
+    default:
+      navLinks = publicLinks;
+  }
 
   return (
     <header
@@ -40,28 +59,36 @@ export function Navbar() {
         {/* Navegación para Desktop (se oculta en móvil) */}
         <nav className="hidden md:flex gap-4">
           {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              // Esta función de NavLink aplica estilos si el link está "activo"
-              className={({ isActive }) =>
-                cn(baseClasses, isActive ? activeClass : inactiveClass)
-              }
-            >
-              {link.label}
-            </NavLink>
+            <Button variant="link" asChild key={link.to}>
+              <NavLink
+                key={link.to}
+                to={link.to}
+              >
+                {link.label}
+              </NavLink>
+            </Button>
           ))}
         </nav>
       </div>
 
       {/* LADO DERECHO: Botones de Acción (Desktop) */}
+
       <div className="hidden md:flex items-center gap-3">
-        <Button variant="link" asChild>
-          <Link to="/login">Login</Link>
-        </Button>
-        <Button variant="link" asChild>
-          <Link to="/registro">Registrarse</Link>
-        </Button>
+        {role ? (
+          <Button variant="link" onClick={logout}>
+            Cerrar Sesion
+          </Button>
+        ) : (
+          <>
+            <Button variant="link" asChild>
+              <Link to="/login">Login</Link>
+            </Button>
+
+            <Button variant="link" asChild>
+              <Link to="/registro">Registrate</Link>
+            </Button>
+          </>
+        )}
       </div>
 
       {/* BOTÓN DE MENÚ MÓVIL (se muestra solo en móvil) */}
@@ -77,7 +104,7 @@ export function Navbar() {
               {/* Logo en el menú móvil */}
               <Link to="/" className="flex items-center">
                 <img
-                  src="/img/logo.png"
+                  src="/img/logo/logo.png"
                   alt="KindyStarts Logo"
                   className="h-10 w-auto"
                 />
@@ -90,9 +117,6 @@ export function Navbar() {
                     <NavLink
                       key={link.to}
                       to={link.to}
-                      className={({ isActive }) =>
-                        cn(baseClasses, isActive ? activeClass : inactiveClass)
-                      }
                     >
                       {link.label}
                     </NavLink>
@@ -102,16 +126,26 @@ export function Navbar() {
 
               {/* Botones de acción en el menú móvil */}
               <div className="flex flex-col gap-3 pt-4 border-t">
-                <SheetClose asChild>
-                  <Button variant="ghost" asChild>
-                    <Link to="/login">Login</Link>
-                  </Button>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Button asChild>
-                    <Link to="/register">Registrarse</Link>
-                  </Button>
-                </SheetClose>
+                {role ? (
+                  <SheetClose asChild>
+                    <Button variant="link" onClick={logout} asChild>
+                      Logout
+                    </Button>
+                  </SheetClose>
+                ) : (
+                  <>
+                    <SheetClose asChild>
+                      <Button variant="ghost" asChild>
+                        <Link to="/login">Login</Link>
+                      </Button>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Button asChild>
+                        <Link to="/register">Registrarse</Link>
+                      </Button>
+                    </SheetClose>
+                  </>
+                )}
               </div>
             </div>
           </SheetContent>
@@ -120,5 +154,3 @@ export function Navbar() {
     </header>
   );
 }
-
-import { cn } from "@/lib/utils";
