@@ -128,3 +128,21 @@ export const users = [
     pass: 'family1234'
   },
 ]
+
+export const linksAdmData = [
+  {title: 'Usuarios', description: 'Administrar los usuarios', link:'/users'},
+  {title: 'Mensajes', description: 'Leer mensajes recibidos', link:'/messages'},
+  {title: 'Actividades', description: 'Administrar actividades', link:'/novedades'},
+]
+
+export const linksTeachData = [
+  {title: 'Alumnos', description: 'Información sobre mis niños/as', link:'/students'},
+  {title: 'Novedades', description: 'Se realiza una descripcion de las cosas aprendidas', link:'/news'},
+  {title: 'Fotos', description: 'Al finalizar el dia, se sube foto con las tareas realizadas', link:'/photos'},
+]
+
+export const linksFamilyData = [
+  {title: 'Documentación', description: 'Adjuntar documentación requerida', link:'/documents'},
+  {title: 'Novedades', description: 'Visualizar novedades', link:'/news'},
+  {title: 'Fotos', description: 'Visualizar foto del dia', link:'/photos'},
+]

@@ -9,9 +9,9 @@ import { Footer } from "./components/Footer";
 import { StepsList } from "./pages/StepsList";
 import { Questions } from "./pages/Questions";
 import { MyClass } from "./pages/teaching/MyClass";
-import { Dashboard } from "./pages/adm/Dashboard";
 import { HomeFamily } from "./pages/family/HomeFamily";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { DashboardAdm } from "./pages/adm/DashboardAdm";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
 
         {/*Pages private*/}
         <Route element={<ProtectedRoute validRoles={['admin']} />}>
-            <Route path="/adm/dashboard" element={<Dashboard />} />
+            <Route path="/adm/dashboard" element={<DashboardAdm />} />
         </Route>
 
         <Route element={<ProtectedRoute validRoles={['teaching']} />}>

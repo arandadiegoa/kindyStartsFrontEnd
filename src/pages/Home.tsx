@@ -12,7 +12,7 @@ import { Team } from "@/components/Team";
 
 export function Home() {
   const plugin = useMemo(
-    () => Autoplay({ delay: 4000, stopOnInteraction: true }),
+    () => Autoplay({ delay: 4000, stopOnInteraction: false }),
     []
   );
 

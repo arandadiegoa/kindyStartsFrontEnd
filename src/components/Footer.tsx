@@ -35,12 +35,12 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Phone size={20} />
+                <Phone size={20} className="mt-1"/>
               </a>
                <span>351-1233900</span>
             </li>
             <li className="flex items-start gap-2">
-              <Clock size={16} />
+              <Clock size={16} className="mt-1"/>
               <span>Lunes a Viernes de 8 a 17hs</span>
             </li>
           </ul>
