@@ -113,18 +113,21 @@ export const teamData = [
 
 export const users = [
   {
+    id: "1",
     name: 'Directora Lucía',
     role: 'admin',
     mail: 'admin@kindyStarts.com',
     pass: 'admin1234'
   },
     {
+    id: "2",
     name: 'Maestra Betina',
     role: 'teaching',
     mail: 'teachin@kindyStarts.com',
     pass: 'teach1234'
   },
     {
+    id: "3",
     name: 'Lorenzo',
     role: 'family',
     mail: 'family@kindyStarts.com',
