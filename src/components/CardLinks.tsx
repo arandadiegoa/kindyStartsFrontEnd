@@ -21,7 +21,7 @@ export function CardLinks({ title, subtitle, links }: CardLinksProps) {
         <h1 className="text-4xl md:text-5xl font-bold mb-2 text-center">
           {title}
         </h1>
-        <p className="text-lg text-muted-foreground mt-6">{subtitle}</p>
+        <p className="text-lg text-muted-foreground mt-10">{subtitle}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -29,9 +29,12 @@ export function CardLinks({ title, subtitle, links }: CardLinksProps) {
           <Link
             to={item.link}
             key={item.title}
-            className="block transition-transform duration-200
-          hover:-translate-y-1 hover:shadow-lg
-          rounded-lg
+            className="
+            group
+            block transition-transform duration-300
+            hover:-translate-y-2
+            hover:shadow-lg
+            rounded-lg
           "
           >
             <Card className="h-full flex flex-col">
@@ -42,7 +45,14 @@ export function CardLinks({ title, subtitle, links }: CardLinksProps) {
               <div className="p-6 pt-0">
                 <div className="flex items-center text-primary font-medium">
                   Ir ahora
-                  <ArrowRight className="ml-2 h-4 w-4 mt-1" />
+                  <ArrowRight className="
+                  ml-2 h-4 w-4 mt-1
+                  opacity-0
+                  transition-all duration-300
+                  group-hover:opacity-100
+                  group-hover:translate-x-1
+                  "
+                  />
                 </div>
               </div>
             </Card>

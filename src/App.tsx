@@ -12,8 +12,19 @@ import { MyClass } from "./pages/teaching/MyClass";
 import { HomeFamily } from "./pages/family/HomeFamily";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { DashboardAdm } from "./pages/adm/DashboardAdm";
+import { useAuth } from "./hook/useAuth";
+import { Messages } from "./pages/adm/Messages";
+import { ActivitiesAdm } from "./pages/adm/ActivitiesAdm";
+import { Users } from "./pages/adm/Users";
+import { FamilyDocs } from "./pages/family/FamilyDocs";
+import { FamilyNews } from "./pages/family/FamilyNews";
+import { FamilyPhotos } from "./pages/family/FamilyPhotos";
 
 function App() {
+
+  const {user} = useAuth()
+  const role = user?.role
+
   return (
     <>
       <Navbar />
@@ -31,17 +42,25 @@ function App() {
         {/*Pages private*/}
         <Route element={<ProtectedRoute validRoles={['admin']} />}>
             <Route path="/adm/dashboard" element={<DashboardAdm />} />
+            <Route path="/adm/mensajes" element={<Messages />} />
+            <Route path="/adm/actividades" element={<ActivitiesAdm />} />
+            <Route path="/adm/usuarios" element={<Users />} />
         </Route>
 
         <Route element={<ProtectedRoute validRoles={['teaching']} />}>
-            <Route path="/teaching/myclass" element={<MyClass />} />
+            <Route path="/teaching/mi-sala" element={<MyClass />} />
         </Route>
 
         <Route element={<ProtectedRoute validRoles={['family']} />}>
-            <Route path="/family/homefamily" element={<HomeFamily />} />
+            <Route path="/family/mi-portal" element={<HomeFamily />} />
+            <Route path="/family/documentos" element={<FamilyDocs />} />
+            <Route path="/family/novedades" element={<FamilyNews />} />
+            <Route path="/family/fotos-diarias" element={<FamilyPhotos />} />
         </Route>
       </Routes>
-      <Footer />
+      
+      {!(role === 'admin' || role === 'teaching') &&  <Footer />}
+     
     </>
   );
 }

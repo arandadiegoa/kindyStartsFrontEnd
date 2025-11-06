@@ -3,13 +3,9 @@ import { linksTeachData } from "@/data/serviceData";
 import { useAuth } from "@/hook/useAuth";
 
 export function MyClass() {
-  const {user} = useAuth()
-  const subtitle = `¡Bienvenida, ${user?.name}! a tu espacio de trabajo digital.`
+  const { user } = useAuth();
+  const subtitle = `¡Bienvenida, ${user?.name}! a tu espacio de trabajo digital.`;
   return (
-   <CardLinks
-   title="Mi Aula"
-   subtitle={subtitle}
-   links={linksTeachData}
-   />
+    <CardLinks title="Mi Sala" subtitle={subtitle} links={linksTeachData} />
   );
 }

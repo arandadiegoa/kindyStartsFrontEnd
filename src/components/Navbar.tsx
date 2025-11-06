@@ -21,9 +21,9 @@ export function Navbar() {
 
   const adminLinks = [{ to: "/adm/dashboard", label: "Dashboard" }];
 
-  const teachLinks = [{ to: "/teaching/myclass", label: "Mi clase" }];
+  const teachLinks = [{ to: "/teaching/mi-sala", label: "Mi clase" }];
 
-  const familyLinks = [{ to: "/family/homefamily", label: "Mi perfil" }];
+  const familyLinks = [{ to: "/family/mi-portal", label: "Mi perfil" }];
 
   let navLinks = [];
 

@@ -21,7 +21,7 @@ export const activitiesData = [
     title: "Día de pintura",
     date: "Miercoles, 10 de mayo 2025",
     description:
-      "Hoy tuvimos un hermoso día de pintura en el jardín🎨. Los chicos y chicas disfrutaron de una jornada llena de color, creatividad y diversión. Con pinceles, rodillos, esponjas y hasta sus propias manos, exploraron distintas técnicas y mezclas de colores, dejando volar la imaginación.",
+      "Hoy tuvimos un hermoso día de pintura en el jardín🎨. Los niños/as disfrutaron de una jornada llena de color, creatividad y diversión. Con pinceles, rodillos, esponjas y hasta sus propias manos, exploraron distintas técnicas y mezclas de colores, dejando volar la imaginación.",
     photos: [
       "/img/galery/Image1.jpeg",
       "/img/galery/Image4.jpeg",
@@ -33,7 +33,7 @@ export const activitiesData = [
     title: "Día de granja",
     date: "Viernes, 15 de octubre 2025",
     description:
-      "Hoy vivimos una jornada muy especial: ¡el día de granja! 🌻🐴🐇. Los chicos y chicas pudieron conocer de cerca distintos animales: gallinas, conejos, ovejas, cabritos y hasta una vaca muy simpática. Aprendieron sobre cómo se alimentan, qué cuidados necesitan y la importancia de respetar y cuidar a todos los seres vivos.",
+      "Hoy vivimos una jornada muy especial: ¡el día de granja! 🌻🐴🐇. Los niños/as pudieron conocer de cerca distintos animales: gallinas, conejos, ovejas, cabritos y una vaca. Aprendieron sobre cómo se alimentan, qué cuidados necesitan y la importancia de respetar y cuidar a todos los seres vivos.",
     photos: [
       "/img/galery/Image5.jpeg",
       "/img/galery/Image7.jpeg",
@@ -45,7 +45,7 @@ export const activitiesData = [
     title: "Día de exposición ",
     date: "Viernes, 25 de Noviembre 2025",
     description:
-      "Hoy celebramos con gran alegría nuestra exposición de trabajos🌟. Las salas del jardín se llenaron de color, creatividad y emoción. Las familias pudieron recorrer los espacios y observar los proyectos que los chicos y chicas realizaron durante este tiempo: pinturas, collages, maquetas, experimentos y muchas cosas más.",
+      "Hoy celebramos con gran alegría nuestra exposición de trabajos🌟. Las salas del jardín se llenaron de color, creatividad y emoción. Las familias pudieron recorrer los espacios y observar los proyectos que los niños/as realizaron durante este tiempo: pinturas, collages, maquetas, experimentos y muchas cosas más.",
     photos: [
       "/img/galery/Image8.jpeg",
       "/img/galery/Image10.jpeg",
@@ -133,19 +133,19 @@ export const users = [
 ]
 
 export const linksAdmData = [
-  {title: 'Usuarios', description: 'Administrar los usuarios', link:'/users'},
-  {title: 'Mensajes', description: 'Leer mensajes recibidos', link:'/messages'},
-  {title: 'Actividades', description: 'Administrar actividades', link:'/novedades'},
+  {title: 'Usuarios', description: 'Administrar los usuarios', link:'/adm/usuarios'},
+  {title: 'Mensajes', description: 'Leer mensajes recibidos', link:'/adm/mensajes'},
+  {title: 'Actividades', description: 'Administrar actividades', link:'/adm/actividades'},
 ]
 
 export const linksTeachData = [
   {title: 'Alumnos', description: 'Información sobre mis niños/as', link:'/students'},
-  {title: 'Novedades', description: 'Se realiza una descripcion de las cosas aprendidas', link:'/news'},
-  {title: 'Fotos', description: 'Al finalizar el dia, se sube foto con las tareas realizadas', link:'/photos'},
+  {title: 'Novedades', description: 'Se realiza una descripcion de lo aprendido', link:'/news'},
+  {title: 'Fotos', description: 'Al finalizar el dia, se sube foto con la propuestas realizadas', link:'/photos'},
 ]
 
 export const linksFamilyData = [
-  {title: 'Documentación', description: 'Adjuntar documentación requerida', link:'/documents'},
-  {title: 'Novedades', description: 'Visualizar novedades', link:'/news'},
-  {title: 'Fotos', description: 'Visualizar foto del dia', link:'/photos'},
+  {title: 'Documentación', description: 'Adjuntar documentación requerida', link:'/family/documentos'},
+  {title: 'Novedades', description: 'Visualizar novedades', link:'/family/novedades'},
+  {title: 'Fotos', description: 'Visualizar foto del dia', link:'/family/fotos-diarias'},
 ]
