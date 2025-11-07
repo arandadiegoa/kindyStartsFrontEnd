@@ -1,22 +1,26 @@
+import { GoBackButton } from "@/components/GoBackButton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { messagesData as initialMessage} from "@/data/serviceData";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { messagesData as initialMessage } from "@/data/serviceData";
 import { cn } from "@/lib/utils";
 import { Archive, Check, Mail, Trash } from "lucide-react";
 import { useState } from "react";
 
 export function Messages() {
-  const [messages, setMessages] = useState(initialMessage)
+  const [messages, setMessages] = useState(initialMessage);
 
   const [selectedMessageId, setSelectedMessageId] = useState<number | null>(
     messages[0]?.id || null
   );
 
-
-  const selectedMessage = messages.find(
-    (msg) => msg.id === selectedMessageId
-  );
+  const selectedMessage = messages.find((msg) => msg.id === selectedMessageId);
 
   const handleSelectMessage = (id: number) => {
     setSelectedMessageId(id);
@@ -24,19 +28,24 @@ export function Messages() {
 
   //Cambiar el estado de los mensajes
   const handleStatusMessage = (id: number) => {
-     setMessages(prevMsg => 
-      prevMsg.map(msg => {
-        if(msg.id === id){
-          return {...msg, estado: 'Leido'}
+    setMessages((prevMsg) =>
+      prevMsg.map((msg) => {
+        if (msg.id === id) {
+          return { ...msg, estado: "Leido" };
         }
-        return msg
+        return msg;
       })
-     )
-  }
+    );
+  };
+
+
 
   return (
-    <div className="flex flex-col gap-6 h-full">
-      <h1 className="text-3xl font-bold">Mensajes Recibidos</h1>
+    <div className="flex flex-col gap-6 h-full m-3">
+      
+    <GoBackButton />
+
+      <h1 className="text-xl md:text-3xl font-bold">Mensajes Recibidos</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-full ">
         {/*Lista de Mensajes*/}
         <Card className="md:col-span-1 h-full">
@@ -55,10 +64,11 @@ export function Messages() {
                   >
                     <div className="flex items-center gap-2">
                       <p className="font-semibold">{msg.nombre}</p>
-                      {msg.estado === 'Pendiente' ? (
+                      {msg.estado === "Pendiente" ? (
                         <Badge variant="destructive">Nuevo</Badge>
-                      ): <Badge variant="default">Leido</Badge>
-                      }
+                      ) : (
+                        <Badge variant="default">Leido</Badge>
+                      )}
                     </div>
                     <p className="text-sm text-muted-foreground">{msg.email}</p>
                     <p className="text-sm text-muted-foreground line-clamp-1">
@@ -77,22 +87,26 @@ export function Messages() {
             <Card className="h-full">
               <CardHeader className="flex flex-row items-center justify-between border-b">
                 <div>
-                  <CardTitle>{selectedMessage.nombre}</CardTitle>
+                  <CardTitle className="text-sm md:text-1xl">{selectedMessage.nombre}</CardTitle>
                   <CardDescription>
                     {selectedMessage.email} | {selectedMessage.telefono}
                   </CardDescription>
                 </div>
                 <div className="flex items-center">
-                  {selectedMessage.estado === 'Pendiente' && (
+                  {selectedMessage.estado === "Pendiente" && (
                     <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => (handleStatusMessage(selectedMessage.id))}
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleStatusMessage(selectedMessage.id)}
                     >
                       <Check className="h-4 w-4" />
                     </Button>
                   )}
-                  <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-destructive hover:text-destructive"
+                  >
                     <Trash className="h-4 w-4" />
                   </Button>
                   <Button variant="ghost" size="icon">
@@ -101,19 +115,21 @@ export function Messages() {
                 </div>
               </CardHeader>
               <CardContent className="p-6">
-                <p className="text-base whitespace-pre-wrap">{selectedMessage.descripcion}</p>
+                <p className="text-base whitespace-pre-wrap">
+                  {selectedMessage.descripcion}
+                </p>
               </CardContent>
             </Card>
           ) : (
             <div className="flex h-full items-center justify-center rounded-lg border-dashed bg-background p-6">
               <div className="text-center">
-              <Mail className="mx-auto h-12 w-12 text-muted-foreground" />
-              <h3 className="mt-2 text-xl font-semibold">
-                Selecciona un mensaje 
-              </h3>
-              <p className="mt-1 text-muted-foreground">
-                Elige un mensaje de la lista para leer su contenido aquí.
-              </p>
+                <Mail className="mx-auto h-12 w-12 text-muted-foreground" />
+                <h3 className="mt-2 text-xl font-semibold">
+                  Selecciona un mensaje
+                </h3>
+                <p className="mt-1 text-muted-foreground">
+                  Elige un mensaje de la lista para leer su contenido aquí.
+                </p>
               </div>
             </div>
           )}

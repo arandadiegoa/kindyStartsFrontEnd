@@ -24,7 +24,7 @@ export function ActivityCard({title, date, description, photos}:ActivityCardProp
     <Dialog open={open} onOpenChange={setOpen}>
         <Card className="w-full max-w-lg">
           <CardHeader>
-            <CardTitle>{title}</CardTitle>
+            <CardTitle className="text-xl md:text-3xl">{title}</CardTitle>
             <CardDescription>{date}</CardDescription>
           </CardHeader>
 

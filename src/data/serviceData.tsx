@@ -18,10 +18,11 @@ export const carouselSlides = [
 
 export const activitiesData = [
   {
+    id: 1,
     title: "Día de pintura",
     date: "Miercoles, 10 de mayo 2025",
     description:
-      "Hoy tuvimos un hermoso día de pintura en el jardín🎨. Los niños/as disfrutaron de una jornada llena de color, creatividad y diversión. Con pinceles, rodillos, esponjas y hasta sus propias manos, exploraron distintas técnicas y mezclas de colores, dejando volar la imaginación.",
+      "Hoy tuvimos un hermoso día de pintura en el jardín🎨. Los niños/as disfrutaron de una jornada llena de color, creatividad y diversión. Con pinceles, rodillos, esponjas y hasta sus propias manos, exploraron distintas técnicas y mezclas de colores, dejando volar la imaginación y la creatividad.",
     photos: [
       "/img/galery/Image1.jpeg",
       "/img/galery/Image4.jpeg",
@@ -30,6 +31,7 @@ export const activitiesData = [
     ],
   },
   {
+    id: 2,
     title: "Día de granja",
     date: "Viernes, 15 de octubre 2025",
     description:
@@ -42,6 +44,7 @@ export const activitiesData = [
     ],
   },
   {
+    id: 3,
     title: "Día de exposición ",
     date: "Viernes, 25 de Noviembre 2025",
     description:
