@@ -20,7 +20,41 @@ export const familyPhotosCarousel = [
   {imgSrc: "/img/galery/Image.jpeg"},
   {imgSrc: "/img/galery/Image1.jpeg"},
   {imgSrc: "/img/galery/Image10.jpeg"}
-  
+]
+
+export const listHallGreen = [
+   {
+    id: 1,
+    name: "Lucía",
+    lastName: "Romagnoli",
+    telephone: "3511234546",
+    age: "2 años",
+     contact: "Papá Atilio"
+  },
+   {
+    id: 2,
+    name: "Betina",
+    lastName: 'Acosta',
+    age: "2 años",
+    telephone: "3511226541",
+    contact: "Mamá Federica"
+  },
+   {
+    id: 3,
+    name: "Mariana",
+    lastName: 'Gorosito',
+    age: "2 años",
+    telephone: "3511067884",
+    contact: "Mamá Nestora"
+  },
+  {
+    id: 4,
+    name: "Mercedes",
+    lastName: 'Torrico',
+    age: "2 años",
+    telephone: "35156456465",
+    contact: "Papá Sebastian"
+  }
 ]
 
 export const activitiesData = [
