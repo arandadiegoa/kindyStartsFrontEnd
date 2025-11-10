@@ -5,16 +5,39 @@ KindyStarts es una aplicación web (SPA) diseñada para centralizar la comunicac
 Este proyecto fue construido con un enfoque "mobile-first", utilizando un stack moderno de React y herramientas de UI de alta calidad.
 ---
 
-capturas de pantalla (Screenshots)
+Capturas de pantalla (Screenshots)
+
+Home
+![Captura Home](./public/img/screenshots/image5.png)
+
 Login
 [![Captura Login](./public/img/screenshots/image.png)]
 
-Panel de Admin
+
+Registrate
+![Captura Registrate](./public/img/screenshots/image4.png)
+
+
+Panel Admin
 [![Captura panel Adm](./public/img/screenshots/image-1.png)]
+
+
+Panel Docente
+[![Captura panel docente]((./public/img/screenshots/image3.png))]
+
+
+Contacto
+![Captura Contacto](/public/img/screenshots/image6.png)
+
 
 Galería de Actividades
 [![Captura galeria actividades](./public/img/screenshots/image-2.png)]
 
+
+![Captura Preguntas frecuentes](./public/img/screenshots/image8.png)
+
+
+![Captura ¿Cómo inscribirse?](./public/img/screenshots/image7.png)
 ---
 
 🚀 Tecnologías Utilizadas

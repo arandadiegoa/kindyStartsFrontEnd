@@ -1,5 +1,5 @@
 import { CardLinks } from "@/components/CardLinks";
-import { linksAdmData } from "@/data/serviceData";
+import { linksAdmData } from "@/data/linksData";
 import { useAuth } from "@/hook/useAuth";
 
 export function DashboardAdm(){

@@ -1,7 +1,7 @@
 import { GoBackButton } from "@/components/GoBackButton";
 import { Button } from "@/components/ui/button";
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { familyPhotosCarousel } from "@/data/serviceData";
+import { familyPhotosCarousel } from "@/data/carouselData";
 import { Edit, PlusCircle, Trash } from "lucide-react";
 import { Link } from "react-router-dom";
 

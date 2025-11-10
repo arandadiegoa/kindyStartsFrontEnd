@@ -1,6 +1,6 @@
 import { GoBackButton } from "@/components/GoBackButton";
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { familyPhotosCarousel } from "@/data/serviceData";
+import { familyPhotosCarousel } from "@/data/carouselData";
 
 export function FamilyPhotos() {
   return (

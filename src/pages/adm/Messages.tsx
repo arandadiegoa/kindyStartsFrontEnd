@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { messagesData as initialMessage } from "@/data/serviceData";
+import { messagesData as initialMessage } from "@/data/messageData";
 import { cn } from "@/lib/utils";
 import { Archive, Check, Mail, Trash } from "lucide-react";
 import { useState } from "react";

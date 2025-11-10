@@ -15,7 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { listHallGreen } from "@/data/serviceData";
+import { listHallGreen } from "@/data/authData";
 
 export function ChildrenList() {
   return (

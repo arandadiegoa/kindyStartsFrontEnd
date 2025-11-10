@@ -1,5 +1,5 @@
 import { CardLinks } from "@/components/CardLinks";
-import { linksTeachData } from "@/data/serviceData";
+import { linksTeachData } from "@/data/linksData";
 import { useAuth } from "@/hook/useAuth";
 
 export function MyClass() {

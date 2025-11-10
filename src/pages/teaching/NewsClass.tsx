@@ -2,7 +2,7 @@ import { ActivityCard } from "@/components/ActivityCard";
 import { GoBackButton } from "@/components/GoBackButton";
 import { Button } from "@/components/ui/button";
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { newsData } from "@/data/serviceData";
+import { newsData } from "@/data/contentData";
 import { Edit, PlusCircle, Trash } from "lucide-react";
 import { Link } from "react-router-dom";
 

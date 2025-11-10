@@ -16,7 +16,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { users } from "@/data/serviceData";
+import { users } from "@/data/authData";
 import { Edit, PlusCircle, Trash } from "lucide-react";
 import { Link } from "react-router-dom";
 

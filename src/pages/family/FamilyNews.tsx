@@ -1,7 +1,7 @@
 import { ActivityCard } from "@/components/ActivityCard";
 import { GoBackButton } from "@/components/GoBackButton";
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { newsData } from "@/data/serviceData";
+import { newsData } from "@/data/contentData";
 
 export function FamilyNews() {
   return (

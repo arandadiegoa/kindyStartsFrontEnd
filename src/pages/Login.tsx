@@ -20,7 +20,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { users } from "@/data/serviceData";
+import { users } from "@/data/authData";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hook/useAuth";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";

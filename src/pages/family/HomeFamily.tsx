@@ -1,5 +1,5 @@
 import { CardLinks } from "@/components/CardLinks";
-import { linksFamilyData } from "@/data/serviceData";
+import { linksFamilyData } from "@/data/linksData";
 import { useAuth } from "@/hook/useAuth";
 
 export function HomeFamily() {

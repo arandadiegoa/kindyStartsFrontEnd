@@ -1,4 +1,4 @@
-import { teamData } from "@/data/serviceData";
+import { teamData } from "@/data/authData";
 import { Card, CardContent } from "./ui/card";
 
 export function Team() {
