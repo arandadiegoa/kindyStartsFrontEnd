@@ -186,14 +186,16 @@ export const users = [
     name: 'Maestra Betina',
     role: 'teaching',
     mail: 'teachin@kindyStarts.com',
-    pass: 'teach1234'
+    pass: 'teach1234',
+    sala: "Verde"
   },
     {
     id: "3",
     name: 'Lorenzo',
     role: 'family',
     mail: 'family@kindyStarts.com',
-    pass: 'family1234'
+    pass: 'family1234',
+    sala: 'Verde'
   },
 ]
 

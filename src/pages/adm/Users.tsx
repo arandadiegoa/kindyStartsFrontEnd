@@ -21,6 +21,7 @@ import { Edit, PlusCircle, Trash } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function Users() {
+  
   return (
     <div className="flex flex-col gap-6 m-3">
       <GoBackButton />
@@ -55,6 +56,7 @@ export function Users() {
                 <TableHead>Nombre</TableHead>
                 <TableHead className="hidden md:table-cell">Email</TableHead>
                 <TableHead>Rol</TableHead>
+                <TableHead>Sala</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -76,6 +78,7 @@ export function Users() {
                         : "Familia"}
                     </Badge>
                   </TableCell>
+                   <TableCell className="font-medium">{user.sala}</TableCell>
                   <TableCell className="text-right">
                     {user.role !== "admin" && (
                       <>
