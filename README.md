@@ -9,18 +9,18 @@ Users de prueba
 
 Admin
 
-mail: 'admin@kindyStarts.com'
-pass: 'admin1234'
+mail: admin@kindyStarts.com
+pass: admin1234
 
 Docente
 
-mail: 'teachin@kindyStarts.com'
-pass: 'teach1234'
+mail: teachin@kindyStarts.com
+pass: teach1234
 
 Family
 
-mail: 'family@kindyStarts.com'
-pass: 'family1234'
+mail: family@kindyStarts.com
+pass: family1234
 
 ---
 Capturas de pantalla (Screenshots)
@@ -43,6 +43,10 @@ Panel Admin
 
 Panel Docente
 ![Captura panel docente](./public/img/screenshots/image3.png)
+
+
+Panel Family
+![Captura panel family](./public/img/screenshots/image9.png)
 
 
 Contacto
