@@ -1,4 +1,4 @@
-KindyStarts - Aplicación de Gestión de Jardín Maternal
+KindyStarts - Aplicación de Gestión de Jardín Maternal✨
 
 KindyStarts es una aplicación web (SPA) diseñada para centralizar la comunicación y gestión de un jardín maternal, conectando a Administradores, Docentes y Familias en una sola plataforma.
 
@@ -43,7 +43,6 @@ Preguntas frecuentes
 ![Captura ¿Cómo inscribirse?](./public/img/screenshots/image7.png)
 
 ---
-
 🚀 Tecnologías Utilizadas
 Este proyecto fue construido utilizando:
 
@@ -68,7 +67,6 @@ Carruseles: Embla Carousel - Utilizado en el Home y en las galerías (con plugin
 Iconos: Lucide React.
 
 ---
-
 ✨ Características Principales
 Sistema de Autenticación y Roles
 
@@ -81,7 +79,6 @@ Logout Seguro: Maneja correctamente el logout y la navegación, evitando "págin
 Rutas Protegidas (ProtectedRoute): Un componente "guardián" que restringe el acceso a las ruta (/admin/*, /family/*) basándose en el rol del usuario guardado en el AuthContext.
 
 ---
-
 Paneles de Control Dinámicos
 
 Layout Dinámico: La Navbar y el Footer cambian dinámicamente. 
@@ -95,7 +92,6 @@ Efectos de UI Modernos: Las tarjetas de navegación incluyen efectos hover (leva
 sombra y revelado de flecha) para una UX más moderna.
 
 ---
-
 Módulos de Administración (Admin)
 
 Gestión de Usuarios: Página con una tabla para visualizar y gestionar usuarios.
@@ -107,14 +103,13 @@ Gestión de Actividades: Un layout de tarjetas que permite al admin ver, editar 
 actividades. Incluye un modal con un carrusel para ver todas las fotos.
 
 ---
-
 Módulos de Docente y Familia
 
 Portal de Familia: Incluye un formulario funcional para la subida de archivos (con validación de tipo y tamaño usando Zod y FileList).
 
 Galería de Actividades: Componente reutilizable (ActivityCard) que muestra una descripción fecha, y una galería de fotos con un Lightbox (modal) que incluye un carrusel automático (embla-carousel-autoplay) y con efecto fade (embla-carousel-fade).
----
 
+---
 Componentes y UI General
 
 Home: Carrusel principal a pantalla completa con texto superpuesto.
