@@ -22,6 +22,7 @@ import { FamilyPhotos } from "./pages/family/FamilyPhotos";
 import { ChildrenList } from "./pages/teaching/ChildrenList";
 import { PhotosClass } from "./pages/teaching/PhotosClass";
 import { NewsClass } from "./pages/teaching/NewsClass";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
+        <Route path="*" element={<NotFound />} />
 
         {/*Pages public*/}
         <Route path="/" element={<Home />} />
@@ -41,6 +43,7 @@ function App() {
         <Route path="/contacto" element={<Contact />} />
         <Route path="/¿como-inscribirse?" element={<StepsList />} />
         <Route path="/preguntas-frecuentes" element={<Questions />} />
+        
 
         {/*Pages private*/}
         <Route element={<ProtectedRoute validRoles={['admin']} />}>

@@ -32,7 +32,7 @@ const formSchema = z.object({
     message: "Por favor ingresa un email válido",
   }),
   register: z.string().min(4, {
-    message: "El apellido debe tener al menos 3 caracteres."})
+    message: "La matrícula debe tener al menos 3 caracteres."})
     .regex(/^[0-9]+$/, { message: "El campo solo debe contener números"
   }),
   password: z.string().min(6, {
