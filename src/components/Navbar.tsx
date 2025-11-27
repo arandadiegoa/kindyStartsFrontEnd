@@ -61,10 +61,7 @@ export function Navbar() {
         <nav className="hidden md:flex gap-4">
           {navLinks.map((link) => (
             <Button variant="link" asChild key={link.to}>
-              <NavLink
-                key={link.to}
-                to={link.to}
-              >
+              <NavLink key={link.to} to={link.to}>
                 {link.label}
               </NavLink>
             </Button>
@@ -77,7 +74,7 @@ export function Navbar() {
       <div className="hidden md:flex items-center gap-3">
         {role ? (
           <Button variant="link" onClick={logout}>
-            Cerrar Sesion
+            Cerrar Sesión
           </Button>
         ) : (
           <>
@@ -115,10 +112,7 @@ export function Navbar() {
               <nav className="flex flex-col gap-4">
                 {navLinks.map((link) => (
                   <SheetClose asChild key={link.to}>
-                    <NavLink
-                      key={link.to}
-                      to={link.to}
-                    >
+                    <NavLink key={link.to} to={link.to}>
                       {link.label}
                     </NavLink>
                   </SheetClose>
@@ -129,8 +123,8 @@ export function Navbar() {
               <div className="flex flex-col gap-3 pt-4 border-t">
                 {role ? (
                   <SheetClose asChild>
-                    <Button variant="link" onClick={logout} asChild>
-                      Logout
+                    <Button variant="link" onClick={logout}>
+                      Cerrar Sesión
                     </Button>
                   </SheetClose>
                 ) : (

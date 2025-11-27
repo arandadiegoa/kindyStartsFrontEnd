@@ -20,10 +20,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { users } from "@/data/authData";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hook/useAuth";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
 
 //Schema
 const formSchema = z.object({
@@ -35,12 +36,18 @@ const formSchema = z.object({
   }),
 });
 
+type LoginFormValues = z.infer<typeof formSchema>;
+
 export function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
 
+  //Mejorar la carga y errores
+  const [isLoading, setIsloading] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+
   //Validacion con Zod
-  const form = useForm({
+  const form = useForm<LoginFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
@@ -48,22 +55,35 @@ export function Login() {
     },
   });
 
-  type LoginFormValues = z.infer<typeof formSchema>;
+  async function onSubmit(values: LoginFormValues) {
+    setIsloading(true);
+    setServerError(null);
 
-  function onSubmit(values: LoginFormValues) {
-    const foundUser = users.find(
-      (user) => user.mail === values.email && user.pass === values.password
-    );
+    try {
+      console.log("Enviando datos del back", values);
+      //Conectar el back
+      const response = await fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
 
-    if (foundUser) {
-      const userToLogin = {
-        name: foundUser.name,
-        role: foundUser.role
+      const data = await response.json();
+
+      //Verifiar respuesta
+      if (!response.ok) {
+        throw new Error(data.message || "Error al iniciar sesión");
       }
 
-      login(userToLogin);
+      //Si respuesta.ok
+      console.log("Login exitoso, usuario registrado", data.user);
 
-      switch (foundUser.role) {
+      //Guardamos el usuario
+      login(data.user);
+
+      switch (data.user.role) {
         case "admin":
           navigate("/adm/dashboard");
           break;
@@ -76,10 +96,12 @@ export function Login() {
         default:
           navigate("/");
       }
-    } else {
-      form.setError("root", {
-        message: "Email o contraseña incorrecta",
-      });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error:any) {
+      console.log("Error", error)
+      setServerError(error.message)
+    }finally {
+      setIsloading(false)
     }
   }
 
@@ -126,18 +148,25 @@ export function Login() {
                   </FormItem>
                 )}
               />
-              {form.formState.errors.root && (
+              {serverError && (
                 <Alert variant="destructive">
                   <AlertTitle className="text-center" />
                   <AlertDescription>
-                    {form.formState.errors.root.message}
+                    {serverError}
                   </AlertDescription>
                 </Alert>
               )}
             </CardContent>
             <CardFooter>
-              <Button type="submit" className="w-full">
-                Enviar
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Validando...
+                  </>
+                ): (
+                  "Ingresar"
+                )}
               </Button>
             </CardFooter>
           </form>
