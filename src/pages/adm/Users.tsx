@@ -71,9 +71,9 @@ export function Users() {
                   ""
                 )}
             <TableBody>
-              {users.map((user) => (
+              {users.map((user,index) => (
                 <TableRow key={user.id}>
-                  <TableCell className="font-medium">{user.id}</TableCell>
+                  <TableCell className="font-medium">#{index + 1}</TableCell>
                   <TableCell className="font-medium">{user.name}</TableCell>
                   <TableCell className="hidden md:table-cell">
                     {user.email}
