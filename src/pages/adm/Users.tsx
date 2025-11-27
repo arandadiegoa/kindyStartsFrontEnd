@@ -24,8 +24,6 @@ import { Link } from "react-router-dom";
 export function Users() {
 
   const { users, isLoading, error } = useUsers()
-
-  console.log(users)
   
   return (
     <div className="flex flex-col gap-6 m-3">
