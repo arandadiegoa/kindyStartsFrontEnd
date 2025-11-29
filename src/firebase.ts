@@ -1,5 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"
+
+console.log("🔍 DEBUG FIREBASE:", {
+  apiKey: import.meta.env.VITE_API_KEY,
+  projectId: import.meta.env.VITE_PROJECT_ID
+});
 
 // Tu configuración de Firebase
 // (Copia esto desde la consola de Firebase: Project settings -> General -> Your apps)
@@ -18,3 +25,5 @@ const app = initializeApp(firebaseConfig);
 
 // 2. Exportamos la instancia de Storage ya inicializada
 export const storage = getStorage(app, "gs://kindystarts.firebasestorage.app");
+export const auth = getAuth(app)
+export const db = getFirestore(app)

@@ -25,6 +25,9 @@ import { useAuth } from "@/hook/useAuth";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc} from "firebase/firestore";
+import { auth, db } from "@/firebase";
 
 //Schema
 const formSchema = z.object({
@@ -60,30 +63,40 @@ export function Login() {
     setServerError(null);
 
     try {
-      console.log("Enviando datos del back", values);
-      //Conectar el back
-      const response = await fetch("http://localhost:3000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+      console.log('Autenticando con Firebase..')
+      
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      )
 
-      const data = await response.json();
+      const uid = userCredential.user.uid
+        //Si respuesta.ok
+      console.log("Login exitoso, usuario registrado", uid);
+
+      const userDocRef = doc(db, "users", uid)
+      const userDocSnap = await getDoc(userDocRef)
 
       //Verifiar respuesta
-      if (!response.ok) {
-        throw new Error(data.message || "Error al iniciar sesión");
+      if (!userDocSnap.exists()) {
+        throw new Error("Error al iniciar sesión, el usuario no tiene permisos");
       }
 
-      //Si respuesta.ok
-      console.log("Login exitoso, usuario registrado", data.user);
+      const userData = userDocSnap.data()
+      console.log("Datos obtenidos desde firebase", userData);
 
-      //Guardamos el usuario
-      login(data.user);
+      const finalUsers = {
+        uid: uid,
+        email: userCredential.user.email,
+        role: userData.role,
+        name: userData.name,
+        ...userData
+      }
 
-      switch (data.user.role) {
+      login(finalUsers)
+
+      switch (finalUsers.role) {
         case "admin":
           navigate("/adm/dashboard");
           break;
@@ -98,8 +111,14 @@ export function Login() {
       }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error:any) {
-      console.log("Error", error)
-      setServerError(error.message)
+      console.log("Error:", error.code, error.message)
+      let msg = "Error al iniciar sessión"
+      if(error.code === 'auth/invalid-credential' || error.code === 'auth/worg-password') {
+        msg = "Credenciales incorrectas"
+      } else if(error.code === 'auth/user-not-found'){
+        msg = "Usuario no encontrado"
+      }
+      setServerError(msg)
     }finally {
       setIsloading(false)
     }
