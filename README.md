@@ -115,6 +115,7 @@ Persistencia de Sesión: Mantiene al usuario logueado mediante onAuthStateChange
 Rutas Protegidas: Componente ProtectedRoute que actúa como "guardián", impidiendo el acceso no 
 
 autorizado a paneles administrativos o docentes mediante URL directa.
+
 ---
 Paneles de Control Dinámicos
 
