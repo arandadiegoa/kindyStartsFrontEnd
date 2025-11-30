@@ -99,6 +99,7 @@ React Hook Form + Zod - Manejo de formularios de alto rendimiento con validació
 
 ---
 ✨ Características Principales
+
 🔐 Sistema de Autenticación y Roles (Serverless)
 
 Login Directo con Firebase: Autenticación segura contra Google Identity Platform, eliminando la
