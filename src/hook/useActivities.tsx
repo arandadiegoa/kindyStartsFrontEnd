@@ -18,13 +18,11 @@ export function useActivities() {
     try {
 
       const user = auth.currentUser
-      console.log('_Usuario actual', user)
 
       if(!user) throw new Error("No estás logueado")
 
       const token = await user.getIdToken()
-      console.log("🎟️ Token generado:", token); // <--- ¿Es un string largo o undefined?
-
+      
       const response = await fetch('http://localhost:3000/api/activities', {
         method: 'POST',
         headers: {
@@ -74,8 +72,6 @@ export function useActivities() {
 
   //Borrar actividad
   const deleteActivity = async (id: string) => {
-
-    console.log("🗑️ Intentando borrar ID:", id);
     
     if(!id){
       alert('Error el ID de la actividad no existe')
