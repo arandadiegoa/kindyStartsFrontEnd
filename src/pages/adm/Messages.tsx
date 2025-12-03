@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { useMessages } from "@/hook/useMessages";
 import { cn } from "@/lib/utils";
-import { Archive, Check, Loader2, Mail, MailOpen, Trash } from "lucide-react";
+import { Check, Loader2, Mail, MailOpen, Trash } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 import { useState } from "react";
 
@@ -123,10 +123,6 @@ export function Messages() {
                       )}
                   </Button>
                   
-                   <Button variant="ghost" size="icon">
-                    <Archive className="h-4 w-4 text-muted-foreground" />
-                  </Button>
-
                   <Button
                     variant="ghost"
                     size="icon"

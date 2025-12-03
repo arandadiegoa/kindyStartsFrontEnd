@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
@@ -29,21 +29,34 @@ function App() {
   const {user} = useAuth()
   const role = user?.role
 
+  const getDashboardRoute = () => {
+    switch (role) {
+      case 'admin': return "/adm/dashboard"
+      case 'teaching': return "/teaching/mi-sala"
+      case 'family': return "/family/mi-portal"
+      default: return "/"
+    }
+  }
+
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="*" element={<NotFound />} />
+        
+        <Route 
+          path="/"
+          element={user ? <Navigate to={getDashboardRoute()} replace /> : <Home />}
+        />
 
         {/*Pages public*/}
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registro" element={<Register />} />
+        <Route path="/login" element={user ? <Navigate to={getDashboardRoute()} /> : <Login />} />
+        <Route path="/registro" element={user ? <Navigate to={getDashboardRoute()} /> : <Register />} />
         <Route path="/actividades" element={<Activities />} />
         <Route path="/contacto" element={<Contact />} />
         <Route path="/¿como-inscribirse?" element={<StepsList />} />
         <Route path="/preguntas-frecuentes" element={<Questions />} />
-        
+               
 
         {/*Pages private*/}
         <Route element={<ProtectedRoute validRoles={['admin']} />}>
