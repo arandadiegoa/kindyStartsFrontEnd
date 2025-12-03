@@ -1,4 +1,6 @@
+import { auth } from "@/firebase";
 import { getAuthHeaders } from "@/lib/utils";
+import { onAuthStateChanged } from "firebase/auth";
 import { useCallback, useEffect, useState } from "react";
 
 const API_URL = 'http://localhost:3000/api/users'
@@ -112,7 +114,16 @@ export function useUsers(){
     }
 
   useEffect(() => {
-    fetchUsers()
+    const unsuscribe = onAuthStateChanged( auth, (user) => {
+
+      if(user) {
+         fetchUsers()
+      } else {
+        setIsloading(false)
+      }
+    })
+    return () => unsuscribe()
+   
   }, [fetchUsers])
 
   return { users, isLoading, error, fetchUsers, createUser, updateUser, deleteUser }

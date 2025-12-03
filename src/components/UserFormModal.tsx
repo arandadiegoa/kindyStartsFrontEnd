@@ -44,7 +44,7 @@ const userSchema = z.object({
   password: z.string().optional(),
   role: z.enum(["admin", "teaching", "family"]),
   parentName: z.string().optional(),
-  hall: z.string().optional,
+  hall: z.string().optional(),
   phone: z.string().optional(),
 });
 
