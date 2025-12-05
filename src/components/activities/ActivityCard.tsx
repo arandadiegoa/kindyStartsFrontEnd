@@ -14,7 +14,7 @@ interface ActivityCardProps {
   title: string;
   date: string | Date | { seconds: number} | null | undefined;
   description: string;
-  photos: string[];
+  photos?: string[];
 }
 
 export function ActivityCard({

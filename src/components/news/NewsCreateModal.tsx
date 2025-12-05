@@ -1,8 +1,11 @@
 import type { News } from "@/hook/useNews"
 import { useState } from "react"
-import { Dialog, DialogHeader } from "../ui/dialog"
-import { DialogContent, DialogTitle } from "@radix-ui/react-dialog"
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "../ui/dialog"
 import { Label } from "../ui/label"
+import { Input } from "../ui/input"
+import { Textarea } from "../ui/textarea"
+import { Button } from "../ui/button"
+import { Loader2, Plus } from "lucide-react"
 
 interface NewsCreateModalProps {
  isOpen: boolean
@@ -61,6 +64,15 @@ return (
 
         <div className="flex-1 overflow-y-auto p-6 pt-2 grid gap-4">
           <div className="grid gap-2">
+            <Label>Fecha</Label>
+            <Input 
+            id="create-date"
+            type="date"
+            value={formData.date || ""}
+            onChange={(e) => setFormData({...formData, date: e.target.value})}
+            />
+          </div>
+          <div className="grid gap-2">
             <Label htmlFor="title">Título</Label>
             <Input 
             id="create-title"
@@ -72,11 +84,37 @@ return (
             />
           </div>
 
-          <div>
-            
+          <div className="grid gap-2">
+            <Label>Descripción</Label>
+            <Textarea 
+            id="create-dec"
+            placeholder="Detalle de la novedad"
+            value={formData.description}
+            onChange={(e) => 
+              setFormData({...formData, description: e.target.value})
+            }
+            />
           </div>
-
         </div>
+
+        <DialogFooter>
+          <Button variant="outline" onClick={onClose}>
+            Cancelar
+          </Button>
+          <Button onClick={handleSubmit} disabled={isSaving || !formData.title}>
+            {isSaving ? (
+              <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              {uploadProgress || "Guardando.."}
+              </>
+            ): (
+              <>
+              <Plus className="mr-2 h-4 w-4" />
+              Crear novedad
+              </>
+            )}
+          </Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   )

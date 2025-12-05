@@ -9,7 +9,7 @@ export interface News {
 }
 
 export function useNews() {
-  const [newses, setNewses] = useState<News[]>([])
+  const [news, setNews] = useState<News[]>([])
   const [isLoading, setIsloading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -20,7 +20,7 @@ export function useNews() {
       const user = auth.currentUser
       if(!user) throw new Error('No estas logueado')
       const token = await user.getIdToken()
-      const response = await fetch('http//localhost:3000/api/news', {
+      const response = await fetch('http://localhost:3000/api/news', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -39,14 +39,14 @@ export function useNews() {
       }
 
       //Save
-      setNewses(prev => [...prev, newsToDisplay])
-
+      setNews(prev => [...prev, newsToDisplay])
       return true
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error:any) {
       console.log('Error', error)
       alert('Error al crear la noticia' + error.message)
+      return false
     }
   }
 
@@ -55,15 +55,15 @@ export function useNews() {
     setIsloading(true)
 
     try {
-      const res = await fetch('http//localhost:3000/api/news')
+      const res = await fetch('http://localhost:3000/api/news')
       if(!res.ok) throw new Error('Error al cargar las noticias')
        const data = await res.json()
-      setNewses(data)
+      setNews(data)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error:any) {
       setError(error.message)
     } finally {
-      setIsloading(true)
+      setIsloading(false)
     }
   }, [])
 
@@ -82,7 +82,7 @@ export function useNews() {
       if(!user) throw new Error('No estas logueado')
       const token = await user.getIdToken()
       
-      const res = await fetch(`http//localhost:3000/api/news/${id}`, {
+      const res = await fetch(`http://localhost:3000/api/news/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -90,7 +90,7 @@ export function useNews() {
       })
 
       if(!res.ok) throw new Error("Error del servidor o permiso denegado")
-      setNewses(prev => prev.filter(news => news.id !== id))
+      setNews(prev => prev.filter(news => news.id !== id))
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error:any) {
@@ -108,7 +108,7 @@ export function useNews() {
       
       const token = await user.getIdToken()
 
-      const res = await fetch(`http//localhost:3000/api/news/${id}`, {
+      const res = await fetch(`http://localhost:3000/api/news/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ export function useNews() {
   },[fetchNews])
 
   return {
-    newses,
+    news,
     isLoading, 
     error,
     refetch: fetchNews,
