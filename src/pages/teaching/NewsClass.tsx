@@ -62,7 +62,7 @@ export function NewsClass() {
           </p>
         ) : (
           news.map((item) => (
-            <div className="flex flex-col">
+            <div key={item.id} className="flex flex-col">
               <ActivityCard
                 key={item.id}
                 title={item.title}
